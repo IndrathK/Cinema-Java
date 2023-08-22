@@ -36,10 +36,19 @@ public class Principal {
         outroFilme.setAnoDeLancamento(2023);
         outroFilme.setDuracaoEmMinutos(300);
 
+        Serie twd = new Serie();
+        twd.setNome("The Walking Dead");
+        twd.setAnoDeLancamento(2010);
+        twd.exibicao();
+        twd.setTemporadas(10);
+        twd.setEpisodiosPorTemporada(16);
+        twd.setMinutosPorEpisodio(180);
+
         calculadoraDeTempo calculadora = new calculadoraDeTempo();
-        calculadora.inclui(meuFilme);
+        /* calculadora.inclui(meuFilme);
         calculadora.inclui(outroFilme);
-        calculadora.inclui(lost);
+        calculadora.inclui(lost); */
+        calculadora.inclui(twd);
         System.out.println(calculadora.getTempoTotal());
     }
 
