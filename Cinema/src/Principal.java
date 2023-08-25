@@ -1,6 +1,10 @@
+import calculo.FiltroRecomendacao;
 import calculo.calculadoraDeTempo;
+import modelos.Episodio;
 import modelos.Filme;
 import modelos.Serie;
+
+import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) throws Exception {
@@ -50,6 +54,27 @@ public class Principal {
         calculadora.inclui(lost); */
         calculadora.inclui(twd);
         System.out.println(calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(lost);
+        episodio.setTotalVisualizacoes(300);
+        filtro.filtra(episodio);
+
+        var filmeDan = new Filme();
+        filmeDan.setNome("Rise");
+        filmeDan.setAnoDeLancamento(2010);
+        filmeDan.setDuracaoEmMinutos(180);
+        filmeDan.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(outroFilme);
+        listaDeFilmes.add(filmeDan);
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro Filme: " + listaDeFilmes.get(0).getNome());
     }
 
 }
